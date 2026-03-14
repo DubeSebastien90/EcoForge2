@@ -10,7 +10,7 @@ alpha_behind = 0.3
 
 //tuiles
 FLOOR = [0,1,3]
-OBSTACLES = [4]
+OBSTACLES = [4,5]
 
 // Initialisation du monde
 worldmap = array_create(world_size);
@@ -26,7 +26,7 @@ for (var i = 0; i < world_size; i++) {
 			} else if k == height{
 				worldmap[i][j][k] = {tile: 0, a : 1}
 			} else if k == height + 1{
-				worldmap[i][j][k] = {tile: choose(-1,-1,-1,-1,-1,-1,-1,4), a : 1}
+				worldmap[i][j][k] = {tile: choose(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,5), a : 1}
 			} else worldmap[i][j][k] =  {tile: -1, a : 1}
 		}
     }

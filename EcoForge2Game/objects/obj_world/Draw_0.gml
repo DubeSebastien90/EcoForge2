@@ -25,7 +25,14 @@ for (var z = 0; z < world_size; z++) {
 			var _w = tile_width * surf_scale;
 			var _h = tile_width * surf_scale;
 
-			// Créer la surface
+			// Ombre
+			if is_obstacle(_tile_type){
+				shader_set(sh_ombre)
+				draw_sprite_ext(spr_tile, _tile_type,_draw_x - 5*dsin(angle_ombre), _final_y + 5 -5*dcos(angle_ombre),1,1,angle_ombre,c_white,1); 
+				shader_reset();
+			}
+
+			// Créer la surface (pour appliquer shader)
 			if (!surface_exists(surf)) {
 			surf = surface_create(_w, _h);
 			}
@@ -57,12 +64,6 @@ for (var z = 0; z < world_size; z++) {
 			draw_set_alpha(1)
 			shader_reset()
 			
-			// Ombre
-			//if is_obstacle(_tile_type){
-				//shader_set(sh_ombre)
-				//draw_sprite_ext(spr_tile, _tile_type,_draw_x - 5*dsin(angle_ombre), _final_y + 5 -5*dcos(angle_ombre),1,1,angle_ombre,c_white,1); 
-				//shader_reset();
-			//}
         }
     }
 }
