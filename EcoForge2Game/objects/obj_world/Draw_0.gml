@@ -28,7 +28,7 @@ for (var z = 0; z < world_size; z++) {
 			// Ombre
 			if is_obstacle(_tile_type){
 				shader_set(sh_ombre)
-				draw_sprite_ext(spr_tile, _tile_type,_draw_x - 5*dsin(angle_ombre), _final_y + 5 -5*dcos(angle_ombre),1,1,angle_ombre,c_white,1); 
+				//draw_sprite_ext(spr_tile, _tile_type,_draw_x - 5*dsin(angle_ombre), _final_y + 5 -5*dcos(angle_ombre),1,1,angle_ombre,c_white,1); 
 				shader_reset();
 			}
 

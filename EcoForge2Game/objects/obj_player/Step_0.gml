@@ -1,6 +1,11 @@
+var press_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
+var press_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
+var press_up = keyboard_check(vk_up) || keyboard_check(ord("W"));
+var press_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
+
 // 1. Récupérer les entrées brutes (-1, 0, ou 1)
-var _input_x = keyboard_check(vk_right) - keyboard_check(vk_left);
-var _input_y = keyboard_check(vk_down) - keyboard_check(vk_up);
+var _input_x = press_right - press_left
+var _input_y = press_down -press_up
 
 // 2. Calculer la direction et la longueur du vecteur
 if (_input_x != 0 || _input_y != 0) {
