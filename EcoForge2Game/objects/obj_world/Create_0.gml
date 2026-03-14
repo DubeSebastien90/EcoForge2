@@ -3,6 +3,7 @@ randomise()
 tile_width = 32;
 tile_height = 16; // En iso, la hauteur apparente est souvent la moitié de la largeur
 world_size = 10;
+max_z_levels = world_size
 world_depth = 3;
 z_height = 12;
 
