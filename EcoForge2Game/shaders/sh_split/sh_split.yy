@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"sh_split",
+  "name":"sh_split",
+  "parent":{
+    "name":"gr_shit",
+    "path":"folders/gr_shit.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

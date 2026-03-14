@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"sh_ombre",
+  "name":"sh_ombre",
+  "parent":{
+    "name":"EcoForge2Game",
+    "path":"EcoForge2Game.yyp",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}
