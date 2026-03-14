@@ -5,7 +5,7 @@ for (var z = 0; z < world_size; z++) {
             var _tile_type = worldmap[i][j][z].tile;
             
 			//joueur
-			if (i == player_pos.i && j == player_pos.j && z == player_pos.k){
+			if (i == round(obj_player.f_i) && j == round(obj_player.f_j) && z == round(obj_player.k)) {
 				draw_sprite(spr_player,0,obj_player.x,obj_player.y)
 				saw_player = true
 			}
