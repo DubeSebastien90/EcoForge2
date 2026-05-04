@@ -16,13 +16,8 @@ surface_set_target(surf);
 surface_reset_target();
 
 // 4. Dessiner la surface à l'écran avec le shader
-shader_set(sh_pixel_outline);
-	var tex = surface_get_texture(surf); 
-    var texelW = texture_get_texel_width(tex);
-    var texelH = texture_get_texel_height(tex);
-	shader_set_uniform_f(upixelW, texelW);
-    shader_set_uniform_f(upixelH, texelH);
+
+
     // On dessine la surface en compensant le décalage pour que 
     // le sprite reste à sa position d'origine dans la room
     //draw_surface(surf, x - (_w / 2), y - (_h / 2));
-shader_reset();

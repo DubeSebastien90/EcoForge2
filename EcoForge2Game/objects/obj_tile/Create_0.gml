@@ -1,7 +1,3 @@
-//shader
-upixelH = shader_get_uniform(sh_pixel_outline,"pixelH")
-upixelW = shader_get_uniform(sh_pixel_outline,"pixelW")
-
 //surface
 surf = -1; // Initialisation vide
 

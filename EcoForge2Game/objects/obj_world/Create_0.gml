@@ -10,7 +10,7 @@ z_height = 12;
 alpha_behind = 0.3
 
 //tuiles
-FLOOR = [0,1,3]
+FLOOR = [0,1,2,3]
 OBSTACLES = [4,5]
 
 // Initialisation du monde
@@ -20,14 +20,12 @@ worldmap = array_create(world_size);
 for (var i = 0; i < world_size; i++) {
     worldmap[i] = array_create(world_size);
     for (var j = 0; j < world_size; j++) {
-        var height = choose(world_depth-1,world_depth-2,world_depth-2,world_depth-2,world_depth-2,world_depth-2)
+        var height = world_depth-2
 		for (var k = 0; k < world_size; k++) {
 			if k < height{
 				worldmap[i][j][k] = {tile: 1, a : 1}
 			} else if k == height{
-				worldmap[i][j][k] = {tile: 0, a : 1}
-			} else if k == height + 1{
-				worldmap[i][j][k] = {tile: choose(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,5), a : 1}
+				worldmap[i][j][k] = {tile: choose(0,2), a : 1}
 			} else worldmap[i][j][k] =  {tile: -1, a : 1}
 		}
     }
@@ -64,19 +62,6 @@ function screen_to_map(screen_x, screen_y) {
                 var _tile_type = worldmap[i][j][k].tile;
                 if (_tile_type == -1) continue; // On ignore les trous
 
-                // Récupérer la position où la tuile est dessinée
-                var _pos = map_to_screen(i, j, k);
-
-                // Détection de collision
-                // Comme ton origine est Bottom-Center :
-                // _pos.x est le milieu horizontal, _pos.y est le bas du sprite.
-                if (obj_tile.detect_collision(_tile_type, _pos.x, _pos.y, obj_mouse)) {
-                    // Si on touche, on mémorise. 
-                    // Comme on avance vers le "devant", la nouvelle valeur écrasera l'ancienne.
-                    _found_i = i;
-                    _found_j = j;
-                    _found_k = k;
-                }
             }
         }
     }
@@ -121,14 +106,6 @@ function is_obstacle(_id) {
     }
     return false;
 }
-
-//shaders
-upixelH = shader_get_uniform(sh_pixel_outline,"pixelH")
-upixelW = shader_get_uniform(sh_pixel_outline,"pixelW")
-uDrawingA = shader_get_uniform(sh_pixel_outline,"drawingA")
-
-surf_ombre = -1;
-angle_ombre = 45+180;
 
 surf = -1
 

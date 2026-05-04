@@ -25,13 +25,6 @@ for (var z = 0; z < world_size; z++) {
 			var _w = tile_width * surf_scale;
 			var _h = tile_width * surf_scale;
 
-			// Ombre
-			if is_obstacle(_tile_type){
-				shader_set(sh_ombre)
-				//draw_sprite_ext(spr_tile, _tile_type,_draw_x - 5*dsin(angle_ombre), _final_y + 5 -5*dcos(angle_ombre),1,1,angle_ombre,c_white,1); 
-				shader_reset();
-			}
-
 			// Créer la surface (pour appliquer shader)
 			if (!surface_exists(surf)) {
 			surf = surface_create(_w, _h);
@@ -43,21 +36,7 @@ for (var z = 0; z < world_size; z++) {
 				draw_sprite(spr_tile, _tile_type, _w / 2, _h / 2); 
 			surface_reset_target();
 
-			// Outline
-			if (i == selected_tile.i && j == selected_tile.j && z == selected_tile.k){
-				shader_set(sh_pixel_outline);
-				var tex = surface_get_texture(surf); 
-				var texelW = texture_get_texel_width(tex);
-				var texelH = texture_get_texel_height(tex);
-				shader_set_uniform_f(upixelH,texelH)
-				shader_set_uniform_f(upixelW,texelW)
-				shader_set_uniform_f(uDrawingA,worldmap[i][j][z].a)
-			}
-			if saw_player && obj_tile.detect_collision(_tile_type,_draw_x,_final_y, obj_player){
-				worldmap[i][j][z].a = lerp(worldmap[i][j][z].a,alpha_behind,0.1)
-			} else {
-				worldmap[i][j][z].a = lerp(worldmap[i][j][z].a,1,0.1)
-			}
+			
 			// Dessiner
 			draw_set_alpha(worldmap[i][j][z].a);
 			draw_surface(surf, _draw_x - (_w / 2), _final_y - (_h / 2));
